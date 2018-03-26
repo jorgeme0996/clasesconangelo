@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple Polygon</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+      // This example creates a simple polygon representing the Bermuda Triangle.
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 10,
+          center: {lat: 19.4284700, lng: -99.1276600},
+          mapTypeId: 'terrain'
+        });
+
+        // Define the LatLng coordinates for the polygon's path.
+        var zoneCoyo = [
+          {lat: 19.303070, lng: -99.185993},// MB perisur
+          {lat: 19.315015, lng: -99.187525},// CCU
+          {lat: 19.322942, lng: -99.188527},// CU
+          {lat: 19.339789, lng: -99.190623},// insurg-esqLoreto
+          {lat: 19.339789, lng: -99.190623},// BMW san angel
+          {lat: 19.349112, lng: -99.186950},// insurg-esqMiguelAngelQuevedo
+          {lat: 19.347563, lng: -99.182119},// GandhiMAQ
+          {lat: 19.347109, lng: -99.180380},// MAQ-Universidad
+          {lat: 19.342045, lng: -99.143872},// MAQ-Tlalpan
+          {lat: 19.341295, lng: -99.137556},// MAQ/convTasqueña-Miramontes
+          {lat: 19.356258, lng: -99.134276},// Miramontes-circuito interior
+          {lat: 19.358685, lng: -99.130849},// circuito interior-Eje 8 
+          {lat: 19.357774, lng: -99.122327},// Metro Metzilcaltzingo
+          {lat: 19.351160, lng: -99.120531},// La viga-conv canal nacional
+          {lat: 19.351160, lng: -99.120531},// Canal nacional-taxqueña
+          {lat: 19.335771, lng: -99.113083},// Canal nacional-AvCarlotaAmadero
+          {lat: 19.327140, lng: -99.106266},// Metro San Andres Tomatlán
+          {lat: 19.320406, lng: -99.099386},// Canal nacional-esqNimes
+          {lat: 19.295927, lng: -99.100765},// Canal nacional-esqPeriferico
+          {lat: 19.289192, lng: -99.116604},// Periferico-esqAcoxpa
+          {lat: 19.301247, lng: -99.146987},// Acoxpa-esqTlalpan
+          {lat: 19.290289, lng: -99.161924},// Tlalpan-esqSanfer
+          {lat: 19.295720, lng: -99.184511},// Sanfer-esqInsurgentes
+        ];
+
+        // Construct the polygon.
+        var zoneCoyo = new google.maps.Polygon({
+          paths: zoneCoyo,
+          strokeColor: '#AB47BC',
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: '#AB47BC',
+          fillOpacity: 0.35
+        });
+        zoneCoyo.setMap(map);
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAluSDy8exygd2ISMeRXa_RC8dHgWpSeoU&callback=initMap">
+    </script>
+  </body>
+</html>
